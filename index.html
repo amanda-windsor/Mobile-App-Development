@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+	<link href="practice.css" rel="stylesheet" type="text/css">
+<title>Ionic Page</title>
+</head> 
+
+<body>
+
+	<ion-app> <!-- Ion-app element is a container element for Ionic applications. Ionic apps can include
+				many components, such as menus, headers, content, and footers. -->
+	<ion-nav root="nav-home"></ion-nav>
+	</ion-app>
+	
+<script>
+customElements.define(
+'nav-home',
+class NavHome extends HTMLElement {
+connectedCallback() {
+this.innerHTML = `
+	
+		
+	<ion-header> <!--Ion-header is the parent component of the toolbar component. The ion-header
+				should be one of the three root elements of a page.-->
+	<ion-toolbar> <!-- Ion-toolbars are generic bar-types that can be used as a header, sub-header, footer,
+				or sub-footer in an application. Generally, they are placed above or below the
+				content. You can add more than one toolbar to your page-->
+	<ion-title class="">My First App</ion-title>
+	</ion-toolbar>
+	</ion-header>
+		
+	<!--CONTENT DISPLAY OPTION 1-->
+	<ion-content fullscreen>
+		<ion-item onclick="navigateForward()">
+		<ion-card>
+			<ion-card-header>
+			<ion-card-title>Hello World</ion-card-title> <!-- Ion-card-title is a child component of a card that adds titles to the card -->
+		<ion-card-subtitle>This is the ion-card subtitle!</ion-card-subtitle> <!-- Ion-card-subtitle is a child component of the card that adds subtitles to 																			it. It appears in capital letters inside the app. -->
+			</ion-card-header> <!-- ion-card-header is a sub-component of <ion-card> that creates the header for the card.-->
+			
+			
+			<ion-card-content> <!-- Ion-card-content is a child component of *ion-card> that adds padding to its
+									content. Text content should be added to a card in the ion-card-content
+									element. The current content is placeholder text
+									that will be replaced once the text is ready for the
+									app. -->
+			<p>Ion-cards are an effective way to display standard pieces of UI content that
+			serve as a gateway to detailed information. These are the most effective means
+			of displaying information that feels user-friendly. In cases where there is a need
+			to display large amounts of information at once, and a small screen is often
+			present, the choice of the card becomes the most popular design pattern for
+			organisations such as Google, Twitter, Spotify, etc.</p>
+				<p>Click me to continue</p>
+			<img src="images/heart-700141_1280.webp" alt="Hearts">
+			</ion-card-content>
+		</ion-card>
+		</ion-item>
+	</ion-content>		
+		
+	<!---->	<!--CONTENT DISPLAY OPTION 2
+		<ion-content class="ion-padding"> <!-- The content for the app which has added padding. Ion-content is a container that serves to hold all the other 											elements that you would like to create in your app. The content component provides an easy-to-use content zone 											and a number of useful methods for controlling the scrollable area 
+			<h1>Hello World</h1>
+			<p>This is another way to display content!</p>
+		</ion-content>-->
+		
+		
+		
+	<ion-footer><!--Ion-footer component is located at the bottom of the page. This element can be a
+					wrapper for the which ensures that the content area is sized correctl -->
+	<ion-toolbar>
+	<ion-title>Amanda Windsor 2022</ion-title>
+	</ion-toolbar>
+	</ion-footer>
+	
+`;
+	}
+	}
+	);
+const nav = document.querySelector('ion-nav');
+function navigateForward() {
+nav.push('nav-detail');
+}
+customElements.define(
+'nav-detail',
+class NavDetail extends HTMLElement {
+connectedCallback(){
+this.innerHTML =`
+<ion-header translucent>
+<ion-toolbar>
+<ion-buttons slot="start">
+<ion-back-button defaultHref="index.html"></ion-back-button>
+</ion-buttons>
+<ion-title>My First App</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+<ion-card color="light">
+<ion-card-header>
+<ion-card-subtitle>Established since 2022</ion-card-subtitle>
+<ion-card-title>Hello World</ion-card-title>
+</ion-card-header>
+<ion-card-content>
+<p>You are now on second page</p>
+</ion-card-content>
+</ion-card>
+</ion-content>
+	
+	<ion-footer><!--Ion-footer component is located at the bottom of the page. This element can be a
+					wrapper for the which ensures that the content area is sized correctl -->
+	<ion-toolbar>
+	<ion-title>Amanda Windsor 2022</ion-title>
+	</ion-toolbar>
+	</ion-footer>
+	`;
+	}
+	}
+	);
+	</script>
+</body>	
+</html>

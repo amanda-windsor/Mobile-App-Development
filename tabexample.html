@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tabs</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+<link href="practice.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<ion-app>
+<ion-tabs> <!--This app will create a tab based layout-->
+<ion-tab tab="home"> <!--Naming the page "home" that will be used as the anchor for the tab-->
+<ion-header>
+<ion-toolbar>
+<ion-title>App name</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content>
+<div class="ion-text-center"> <!-- Using the <div> tag to manage the content for the tab and placing the content to
+the center of the page-->
+<h1>Heading</h1>
+<p>Home Content</p>
+	<ion-button>This is a button</ion-button>
+</div>
+</ion-content>
+</ion-tab>
+<ion-tab tab="settings"><!--Naming the page "settings" that will be used as the anchor for the tab and placing the content
+to the center of the page-->
+<ion-header>
+<ion-toolbar>
+<ion-title>App name</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content>
+<div class="ion-text-center"> <!-- Using the <div> tag to manage the content for the tab-->
+<h1>Settings</h1>
+<p>Settings Content</p>
+</div>
+</ion-content>
+</ion-tab>
+<ion-tab-bar slot="bottom"> <!--Creating a bar which is located at the bottom of the page-->
+<ion-tab-button tab="home"> <!--this button will link back to the "home" page-->
+<ion-label>Home</ion-label>
+<ion-icon name="home"></ion-icon><!--using the "home" icon -->
+</ion-tab-button>
+<ion-tab-button tab="settings"><!--this will link back to the "settings" page-->
+<ion-label>Settings</ion-label>
+<ion-icon name="settings"></ion-icon><!--using the "settings" icon -->
+</ion-tab-button>
+</ion-tab-bar>
+</ion-tabs>
+</ion-app>
+</body>
+</html>
+
+<!-- 
+USE IONIC ICONS WITHOUT IONIC FRAMEWORK
+Installation
+
+If you're using Ionic Framework, Ionicons is packaged by default, so no installation is necessary. Want to use Ionicons without Ionic Framework? Place the following <script> near the end of your page, right before the closing </body> tag, to enable them.
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+-->

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nav</title>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+<style>
+:root {
+--ion-safe-area-top: 20px;
+--ion-safe-area-bottom: 22px;
+}
+</style>
+</head>
+<body>
+<ion-app>
+<ion-nav root="nav-home"></ion-nav>
+</ion-app>
+<!--the content for each topic in the sidebar -->
+<script>
+techs = [
+{
+title: 'Activity',
+description:
+'Popular ways to be active include walking, cycling, wheeling, sports, active recreation and play, and can be done at any level of skill and for enjoyment by everybody. Regular physical activity is proven to help prevent and manage noncommunicable diseases such as heart disease, stroke, diabetes and several cancers',
+},
+{
+title: 'Body Measurements',
+description: 'Health measurement scales are those tools and items used to collect and analyze data regarding health indicators and outcomes to evaluate health status of both individuals and populations',
+},
+{
+title: 'Cycle Tracking',
+description: "Regular cycling stimulates and improves your heart, lungs and circulation, reducing your risk of cardiovascular diseases. Cycling strengthens your heart muscles, lowers resting pulse and reduces blood fat levels.",
+},
+{
+title: 'Hearing', description: 'Healthy hearing results in positive health outcomes, increases social engagement, improves communication, and lowers the risk of depression. It is apparent that quality of life can decrease when the sense of hearing is impaired (see consequences of hearing loss).',
+},
+{
+title: 'Mindfulness',
+icon: 'sass',
+description:
+'Mindfulness means maintaining a moment-by-moment awareness of our thoughts, feelings, bodily sensations, and surrounding environment, through a gentle, nurturing lens..',
+},
+{
+title: 'Mobility',
+description:
+'What is defined as mobility? Mobility is defined as the potential for movement and the ability to get from one place to another using one or more modes of transport to meet daily needs. As such, it differs from accessibility, which refers to the ability to access or reach a desired service or activity.',
+},
+{
+title: 'Nutrition',
+description: 'The taking in and use of food and other nourishing material by the body. Nutrition is a 3-part process. First, food or drink is consumed. Second, the body breaks down the food or drink into nutrients.',
+},
+];
+customElements.define( //Creating a new custom element
+'nav-home',
+class NavHome extends HTMLElement { //creating a new class NavHome which extends the HTML elements
+connectedCallback() {
+this.innerHTML = `
+<ion-header translucent>
+<ion-toolbar>
+<ion-title>Health App</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+<ion-list>
+${techs
+.map(
+(tech) => `
+<ion-item button onclick="showDetail('${tech.title}')">
+<ion-label>
+<h3>${tech.title}</h3>
+</ion-label>
+</ion-item>
+`
+)
+.join('\n')}
+</ion-list>
+</ion-content>
+`;
+}
+}
+);
+const nav = document.querySelector('ion-nav');
+function showDetail(title) {
+const tech = techs.find((tech) => tech.title === title);
+nav.push('nav-detail', { tech });
+}
+customElements.define(
+'nav-detail',
+class NavDetail extends HTMLElement {
+connectedCallback() {
+this.innerHTML = `
+<ion-header translucent>
+<ion-toolbar>
+<ion-buttons slot="start">
+<ion-back-button defaultHref="/"></ion-back-button>
+</ion-buttons>
+<ion-title>${this.tech.title}</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+<p>${this.tech.description}</p>
+</ion-content>
+`;
+}
+}
+);
+</script>
+</body>
+</html>

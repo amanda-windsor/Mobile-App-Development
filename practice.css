@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@media (max-width:360px){
+}
+
+@media (min-width:381px) and (max-width:979px){
+}
+
+@media (min-width:950px){
+}
+
+.headerBox {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    color: #DA1BE4;
+    text-align: center;
+}
+
+ion-card-content, ion-title, ion-card-title, ion-card-subtitle {
+	text-align: center !important;
+	}
+
+ion-card{background-color: pink;}
+
+	:root {
+--ion-safe-area-top: 20px;
+--ion-safe-area-bottom: 22px;
+}
+
+div.myDiv {
+border: 2px outset #766363;
+background-color: #C4E5ED;
+text-align: center;
+padding-top: 4px;
+padding-right: 4px;
+padding-bottom: 4px;
+padding-left: 4px;
+}

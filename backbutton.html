@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>backbutton</title>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+	<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+	<link href="practice.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<ion-app>
+<ion-nav root="nav-home"></ion-nav>
+</ion-app>
+<script>
+customElements.define(
+'nav-home',
+class NavHome extends HTMLElement {
+connectedCallback() {
+this.innerHTML = `
+
+<ion-header> <!--the main header for the app-->
+<ion-toolbar><!--the toolbar-->
+<ion-title>My First App</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+<ion-item onclick="navigateForward()">
+<ion-card color="dark">
+<ion-card-header>
+<ion-card-subtitle>Established since 2022</ion-card-subtitle>
+<ion-card-title>Hello World</ion-card-title>
+</ion-card-header>
+<ion-card-content><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p> Click me to continue </p>
+</ion-card-content>
+</ion-card>
+</ion-item>
+</ion-content>
+<ion-footer><!--the footer for the app -->
+<ion-toolbar>
+<ion-title>RJL2022</ion-title>
+</ion-toolbar>
+</ion-footer>
+`;
+}
+}
+);
+const nav = document.querySelector('ion-nav');
+function navigateForward() {
+nav.push('nav-detail');
+}
+customElements.define(
+'nav-detail',
+class NavDetail extends HTMLElement {
+connectedCallback() {
+this.innerHTML = `
+<ion-header translucent>
+<ion-toolbar>
+<ion-buttons slot="start">
+<ion-back-button defaultHref="index.html"></ion-back-button>
+</ion-buttons>
+<ion-title>My First App</ion-title>
+</ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="ion-padding">
+<ion-card color="light">
+<ion-card-header>
+<ion-card-subtitle>Established since 2022</ion-card-subtitle>
+<ion-card-title>Hello World</ion-card-title>
+</ion-card-header>
+<ion-card-content>
+<p>You are now on second page</p>
+</ion-card-content>
+</ion-card>
+</ion-content>
+<ion-footer><!--the footer for the app -->
+<ion-toolbar>
+<ion-title>RJL2022</ion-title>
+</ion-toolbar>
+</ion-footer>
+`;
+}
+}
+);
+</script>
+</body>
+</html>
