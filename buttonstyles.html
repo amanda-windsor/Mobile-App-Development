@@ -1,16 +1,36 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Buttons</title>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+<link href="practice.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-	<ion-button>This is a button</ion-button>
-	<ion-button size="small">Small steps</ion-button>
-	<ion-button size="big">Think Big</ion-button>
-	<ion-button expand="block">Block</ion-button>
-	<ion-button expand="full">Full blast</ion-button>
 	
+	<!-- Menu Button positioned to the left of header title  -->
+	<ion-header>
+<ion-toolbar color="light">
+<ion-button slot="start"> <ion-icon name="menu"></ion-icon></ion-button>
+<ion-title>
+Button Examples
+</ion-title>
+</ion-toolbar>
+</ion-header>
+	
+	<ion-button>This is a button</ion-button>
+	<ion-button size="small" color="secondary">Small steps</ion-button>
+	<ion-button size="big" color="success">Think Big</ion-button>
+	<ion-button expand="block" color="danger">Block</ion-button>
+	<ion-button expand="full" color="warning">Full blast</ion-button>
+	
+	<!-- This needs to be added in order to use the ion-icon feature -->
+	<script type="module"
+src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
